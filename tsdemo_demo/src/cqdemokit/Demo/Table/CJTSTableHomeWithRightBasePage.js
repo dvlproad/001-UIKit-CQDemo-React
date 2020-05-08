@@ -6,13 +6,13 @@
  * @author      ciyouzen
  * @email       dvlproad@163.com
  * @date        2019-12-20 21:01:43
- *
+ *redirect
  * Copyright (c) dvlproad. All rights reserved.
  */
 import React, {Component} from 'react';
 import CJTSTableHomeBasePage from './CJTSTableHomeBasePage';
-import CJTSNavigationFactory from '../Navigation/CJTSNavigationFactory';
-import CJTSRoute from '../Navigation/CJTSRoute';
+import CJTSNavigationFactory from '../../Navigation/CJTSNavigationFactory';
+import CJTSRoute from '../../Navigation/CJTSRoute';
 
 export default class CJTSTableHomeWithRightBasePage extends CJTSTableHomeBasePage {
     static navigationOptions = ({navigation}) => {

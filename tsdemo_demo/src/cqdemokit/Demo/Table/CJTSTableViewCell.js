@@ -1,11 +1,12 @@
-// CJTableViewCell.js
+// CJTSTableViewCell.js
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
 
-export default class CJTableViewCell extends Component {
+export default class CJTSTableViewCell extends Component {
     static propTypes = {
         text: PropTypes.string,
         detailText: PropTypes.string,
+        shouldAddSeparateLine: PropTypes.bool,
         clickAction: PropTypes.func,
         // arrowImageSource: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     };
@@ -13,6 +14,7 @@ export default class CJTableViewCell extends Component {
     static defaultProps = {
         text: "",
         detailText: null,
+        shouldAddSeparateLine: false,
         clickAction: (nextPageName)=>{},
         arrowImageSource: require("./resources/item_arrow_right.png"),
     };
@@ -31,17 +33,19 @@ export default class CJTableViewCell extends Component {
         return (
             <div
                 style={{
+                    display: 'flex',
                     flex: 1,
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    borderBottom: this.props.shouldAddSeparateLine ? 'solid #E5E5E5 1px' : null,
                 }}
                 onClick={this.props.clickAction}
             >
                 <div
                     style={{   //单行文本水平&垂直居中
-                        height: 44,
-                        lineHeight:44,
+                        height: '44px',
+                        lineHeight:'44px',
                         textAlign: 'center',
                         backgroundColor: "#FFFFFF",
                         fontSize: 17,
@@ -53,22 +57,23 @@ export default class CJTableViewCell extends Component {
                 </div>
                 <div
                     style={{
+                        display: 'flex',
                         marginRight: 10,
                         flex: 1,
                         flexDirection: "row",
                         justifyContent: "flex-end",
-                        alignItems: 'center'
+                        alignItems: 'center',
                     }}
                 >
                     <div
                         style={{   //单行文本水平&垂直居中
-                            height: 44,
-                            lineHeight:44,
+                            height: '44px',
+                            lineHeight: '44px',
                             textAlign: 'center',
                             backgroundColor: "transparent",
                             fontSize: 15,
                             color: '#333333',
-                            marginHorizontal: 10
+                            paddingRight: '10px'
                         }}
                     >
                         {this.props.detailText}

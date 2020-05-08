@@ -10,13 +10,14 @@
  * Copyright (c) dvlproad. All rights reserved.
  */
 import React, {Component} from 'react';
-import {Alert, Dimensions, Platform} from 'react-native';
 import PropTypes from "prop-types";
 import CJCollectionView from './CJCollectionView';
 import CJTSRoute from "../Navigation/CJTSRoute";
 
-let screenHeight = Dimensions.get('window').height;
-let screenBottomHeight = Platform.OS === 'ios' ? screenHeight >= 812 ? 34 : 0 : 0;
+// let screenHeight = Dimensions.get('window').height;
+// let screenBottomHeight = Platform.OS === 'ios' ? screenHeight >= 812 ? 34 : 0 : 0;
+let screenHeight = window.screen.height;
+let screenBottomHeight = 0;
 
 export default class CJTSCollectionHomeBasePage extends Component {
     constructor(props) {
@@ -35,14 +36,15 @@ export default class CJTSCollectionHomeBasePage extends Component {
             // this.props.navigation.navigate(moduleModel.nextPageName);
             CJTSRoute.push(this.props.navigation, moduleModel.nextPageName, {});
         } else {
-            Alert.alert("提示：请至少设置 moduleModel.clickButtonHandle 或 moduleModel.nextPageName");
+            window.alert("提示：请至少设置 moduleModel.clickButtonHandle 或 moduleModel.nextPageName");
         }
     }
 
 
 
     render() {
-        const screenWidth = Dimensions.get('window').width;
+        // const screenWidth = Dimensions.get('window').width;
+        const screenWidth = window.screen.width;
         const listWidth = screenWidth;
 
         return (

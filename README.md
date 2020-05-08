@@ -18,3 +18,13 @@ cd tsdemo_demo
 yarn start
 ```
 
+
+
+
+
+## 二、添加路由
+
+```
+yarn add react-router-dom
+```
+

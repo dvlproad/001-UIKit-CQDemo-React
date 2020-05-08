@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import App from './DemoHomePage';
+// import App from './App';                 // 脚手架自身的Demo
+// import App from './DemoRouterApp';       // 只测试路由的Demo
+// import App from './DemoTableHomePage';   // 不支持跳转的首页
+import App from './DemoApp';                // 支持跳转的首页
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

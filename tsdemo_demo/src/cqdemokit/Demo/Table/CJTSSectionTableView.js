@@ -1,10 +1,10 @@
-//CJSectionTableView.js
+// CJTSSectionTableView.js
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
-import CJTableViewCell from "./CJTableViewCell";
-import {CJTSTheme} from "../Theme/CJTSTheme";
+import CJTSTableViewCell from "./CJTSTableViewCell";
+import {CJTSTheme} from "../../Theme/CJTSTheme";
 
-export default class CJSectionTableView extends Component {
+export default class CJTSSectionTableView extends Component {
     static propTypes = {
         listHeaderTitle: PropTypes.string,
         listFooterTitle: PropTypes.string,
@@ -29,34 +29,32 @@ export default class CJSectionTableView extends Component {
         return (
             <div
                 style={{
-                    height: 50, lineHeight: 50,
+                    height: '50px', lineHeight: '50px',
                     textAlign: 'center', textAlignVertical: 'center',
                     backgroundColor: CJTSTheme.style.themeColor,
                     color: 'white',
-                    fontSize: 30
-                }}>
+                    fontSize: 30,
+                }}
+            >
                 {txt}
             </div>
         )
     }
 
 
-    _renderItem = (moduleModel, index) => {
+    _renderItem = (moduleModel, itemIndex, isLastItem) => {
         return (
-            <CJTableViewCell
-                key={index.toString()}
+            <CJTSTableViewCell
+                key={itemIndex.toString()}
                 text={moduleModel.title}
-                detailText={moduleModel.detailText}
+                detailText={moduleModel.content}
                 arrowImageSource={this.props.arrowImageSource}
+                shouldAddSeparateLine={!isLastItem}
                 clickAction={() => (
                     this.props.clickModuleModel(moduleModel)
                 )}
             />
         )
-    }
-
-    renderCollectionCell(item, index, defaultCollectCellStyle) {
-        return null;
     }
 
     render() {
@@ -74,7 +72,6 @@ export default class CJSectionTableView extends Component {
             }
         }
 
-
         // return (
         //     <SectionList
         //         keyExtractor={(item, index) => index.toString()}
@@ -89,18 +86,27 @@ export default class CJSectionTableView extends Component {
         // );
 
         let renderSectionModels = this.props.sectionDataModels;
-
-
-
         let children = (
-            renderSectionModels.map((sectionModel, index) => {
+            renderSectionModels.map((sectionModel, sectionIndex) => {
+                // let dataModels = sectionModel.values;
+                // let currentSectionCells = [];
+                // for (let itemIndex = 0, itemLength=dataModels.length; itemIndex < itemLength; itemIndex++) {
+                //     let dataModel = dataModels[itemIndex];
+                //     let isLastItem = itemIndex == itemLength - 1 ? true : false;
+                //     let cell = this._renderItem(dataModel, itemIndex, isLastItem);
+                //     currentSectionCells.push(cell);
+                // }
+
                 return (
-                    <div key={index.toString()}>
-                        {this._sectionComp(sectionModel, index)}
+                    <div key={sectionIndex.toString()}>
+                        {this._sectionComp(sectionModel, sectionIndex)}
+                        {/*{currentSectionCells}*/}
                         {
-                            sectionModel.values.map((dataModel, index) => {
+                            sectionModel.values.map((dataModel, itemIndex, array) => {
+                                let itemLength=array.length;
+                                let isLastItem = itemIndex == itemLength - 1 ? true : false;
                                 return (
-                                    this._renderItem(dataModel, index)
+                                    this._renderItem(dataModel, itemIndex, isLastItem)
                                 )
                             })
                         }

@@ -10,7 +10,7 @@
  * Copyright (c) dvlproad. All rights reserved.
  */
 import React, {Component} from 'react';
-import CJSectionTableView from './CJSectionTableView';
+import CJTSSectionTableView from './CJTSSectionTableView';
 // import CJTSRoute from "../Navigation/CJTSRoute";
 
 // let screenHeight = Dimensions.get('window').height;
@@ -30,6 +30,8 @@ export default class CJTSTableHomeBasePage extends Component {
         if (moduleModel.clickButtonHandle) {
             moduleModel.clickButtonHandle(moduleModel);
         } else if (moduleModel.nextPageName && moduleModel.nextPageName.length > 0) {
+            console.log("准备跳转到" + moduleModel.nextPageName);
+            this.props.history.push(moduleModel.nextPageName);
             // this.props.navigation.navigate(moduleModel.nextPageName);
             // CJTSRoute.push(this.props.navigation, moduleModel.nextPageName, {});
         } else {
@@ -75,7 +77,7 @@ export default class CJTSTableHomeBasePage extends Component {
 
         return (
             <div style={{ flex: 1 }}>
-                <CJSectionTableView
+                <CJTSSectionTableView
                     style={{marginBottom: screenBottomHeight}}
                     sectionDataModels={this.state.sectionDataModels}
                     clickModuleModel={this._execModuleModel}
