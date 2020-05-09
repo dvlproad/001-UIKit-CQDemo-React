@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';                                // 脚手架自身的Demo
-// import App from './DemoApp/DemoTableHomePage';          // 单独测试不支持跳转的Table首页
-// import App from './DemoApp/DemoCollectionHomePage';     // 单独测试不支持跳转的Table首页
-import App from './DemoApp/DemoApp';                    // 混合测试支持跳转的首页
-
+// import App from './App';                            // 脚手架自身的Demo
+// import App from './Normal/DemoRouterApp';           // 使用原始方式，测试路由的Demo
+// import App from './RouterUtil/DemoRouterUtilApp';   // 使用 Util 方式，测试路由的Demo
+import App from './History/DemoHistoryUtilApp';     // 使用 Util 方式，测试路由的Demo
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

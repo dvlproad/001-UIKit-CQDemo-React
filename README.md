@@ -28,3 +28,16 @@ yarn start
 yarn add react-router-dom
 ```
 
+
+
+```
+// 最直接
+onClick={()=>{this.props.history.push('./page1');}}
+
+// 使用Util
+onClick={()=>{DemoRouterUtil.push(this.props.history, './page1')}}>
+
+// 使用History
+
+```
+

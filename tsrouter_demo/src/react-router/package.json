@@ -1,8 +1,8 @@
 {
-  "name": "@dvlproad/react-ts",
+  "name": "@dvlproad/react-router",
   "version": "0.0.1",
-  "description": "A Test library for react.",
-  "main": "react-ts.js",
+  "description": "A Router library for react native.",
+  "main": "tsdemo-react-router.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,16 +11,16 @@
     "url": "git+https://github.com/001-UIKit-CQDemo-React.git"
   },
   "keywords": [
-    "react-ts",
+    "tsdemo-react-router",
     "react",
+    "native",
     "UI",
     "library",
     "framework"
   ],
-  "author": "dvlproad",
+  "author": "ciyouzen",
   "license": "MIT",
   "homepage": "http://github.com/001-UIKit-CQDemo-React.git",
-  "dependencies": {
-    
-  }
+  "readmeFilename": "README.md",
+  "dependencies": {}
 }
