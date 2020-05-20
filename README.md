@@ -41,3 +41,15 @@ onClick={()=>{DemoRouterUtil.push(this.props.history, './page1')}}>
 
 ```
 
+
+
+
+
+## 三、测试CQDemoKit库
+
+```
+create-react-app tsdemokitdemo
+
+
+```
+
